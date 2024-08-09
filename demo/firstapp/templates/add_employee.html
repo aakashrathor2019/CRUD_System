@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .errors{
+            color: red;
+        }
+        body{
+            margin: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+      <div class="contaniner">
+        
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="card bg-info">
+              <div class="card-body">
+                <center><h1 class="my-3"><b>Add New Employee</b></h1>
+        <form method="post" action="{% url 'add_user' %}" style="margin: 2px;padding: 3px;">
+            {% csrf_token %}
+            <div class="md3">
+                {{ form.as_p }}
+            </div>
+            {% if form.errors %}
+                <div class="errors">
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{% url 'homepage' %}" style="background-color: black;">Back to Home</a>
+    </center>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -18,6 +18,9 @@
       <center><h1 class="my-3"><b>Update Employee Details</b></h1></center>
       <div class="contaniner">
         <div class="row">
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
           <div class="col-md-6 offset-md-3">
             <div class="card bg-info">
               <div class="car-body">
@@ -25,11 +28,11 @@
                   {% csrf_token %}
                   <div class="md3">
                     <label for="roll">Roll</label>
-                    <input type="text" name="empid" id="roll" class="form-control" required value="{{emp.roll}}" readonly>
+                    <input type="text" name="empid" id="roll" class="form-control" required value="{{emp.roll}}"  >
                   </div>
                   <div class="md3">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="empName" class="form-control" required value="{{emp.name}}">
+                    <input type="text" id="name" name="empName" class="form-control" required value="{{emp.username}}">
                   </div>
                   <div class="md3">
                     <label for="email">Email</label>
